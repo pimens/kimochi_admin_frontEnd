@@ -1,1 +1,1 @@
-Example of using Next.js with Redux
+admin for kimochi apps, created using next-js
