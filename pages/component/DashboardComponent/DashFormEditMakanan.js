@@ -41,7 +41,7 @@ class DashFormEditMakanan extends Component {
         fd.append('harga', this.state.makanan.harga);
         fd.append('desk', this.state.makanan.deskripsi);
         fd.append('category', 1);
-        Axios.post(`${this.props.server}WebApi/editMakanan`, fd).then((response) => {
+        Axios.put(`${this.props.server}editMakanan`, fd).then((response) => {
             console.log(response.data)
             this.props.closeEdit()
             this.props.refresh();

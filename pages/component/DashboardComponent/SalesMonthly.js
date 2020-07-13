@@ -2,7 +2,21 @@ import React, { Component } from 'react';
 class SalesMonthly extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            ob:"",
+            oh:"",
+            st:"",
+            hari:""
+        }
+    }
+    componentDidMount(){
+        this.setState({
+            ob:this.props.pemasukan.ob,
+            oh:this.props.pemasukan.oh,
+            st:this.props.pemasukan.status,
+            hari:this.props.pemasukan.harian
+        })
+        
     }
     render() {
         return (
@@ -15,7 +29,7 @@ class SalesMonthly extends Component {
                                 <h5>Orders</h5>
                             </div>
                             <div className="ibox-content">
-                                <h1 className="no-margins"> {this.props.pemasukan.ob} </h1>
+                                <h1 className="no-margins"> {this.state.ob} </h1>
 
                             </div>
                         </div>
@@ -27,7 +41,7 @@ class SalesMonthly extends Component {
                                 <h5>Orders</h5>
                             </div>
                             <div className="ibox-content">
-                                <h1 className="no-margins">{this.props.pemasukan.oh} </h1>
+                                <h1 className="no-margins">{this.state.oh} </h1>
 
                             </div>
                         </div>
@@ -39,7 +53,7 @@ class SalesMonthly extends Component {
                                 <h5>Income</h5>
                             </div>
                             <div className="ibox-content">
-                                <h1 className="no-margins">Rp. {this.props.pemasukan.status}</h1>
+                                <h1 className="no-margins">Rp. {this.state.st}</h1>
 
                             </div>
                         </div>
@@ -51,7 +65,7 @@ class SalesMonthly extends Component {
                                 <h5>Income</h5>
                             </div>
                             <div className="ibox-content">
-                                <h1 className="no-margins">Rp. {this.props.pemasukan.harian}</h1>
+                                <h1 className="no-margins">Rp. {this.state.hari}</h1>
                             </div>
                         </div>
                     </div>

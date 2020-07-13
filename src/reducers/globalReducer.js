@@ -2,7 +2,9 @@ import { RESET, ubahId, SETMKN, SETPROMO,SETCBNG } from "../actions/types";
 
 const initialState = {
   counter: 0, id: 10,
-  server: "http://localhost/nomAdmin/",
+  // server: "http://localhost/nomAdmin/WebApi/",
+  server: "http://localhost/blog/public/api/makanan/",
+  server1: "http://localhost/blog/public/uploads/data/thumb/",
   mkn: {},
   prm: {},
   cbng: {}
@@ -11,8 +13,6 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case RESET:
-      // console.log(state);      
-      // state.counter = state.counter+100;
       return Object.assign({}, state, {
         counter: 0,
         id: 0

@@ -30,20 +30,20 @@ class Dashboard extends Component {
         }
     }
     componentDidMount() {
-        console.log(this.props);
+        // console.log(this.props);
         this.refreshData();
     }
-    refreshData = () => {
-        Axios.get(this.props.server + "WebApi/getMakanan").then((response) => {
+    refreshData = async () =>  {
+        await Axios.get(this.props.server + "getMakanan").then((response) => {
             this.setState({
                 makanan: response.data
             })
         })
-        Axios.get(this.props.server + "WebApi/pemasukan").then((response) => {
-            this.setState({
-                pemasukan: response.data
-            })
-        })
+        // await Axios.get(this.props.server + "pemasukan").then((response) => {
+        //     this.setState({
+        //         pemasukan: response.data
+        //     })
+        // })
     }
     showFormData = () => {
         this.setState({ tambahMakanan: !this.state.tambahMakanan })
@@ -54,9 +54,9 @@ class Dashboard extends Component {
         })
     }
     showEdit = (id) => {
-        Axios.get(this.props.server + "WebApi/getMakananById/" + id).then((response) => {
-            // console.log(response.data[0]);
-            this.props.setMkn(response.data[0]);
+        Axios.get(this.props.server + "getMakananById/" + id).then((response) => {
+            // console.log(response.data);
+            this.props.setMkn(response.data);
             this.setState({ edit: true })
         })
 

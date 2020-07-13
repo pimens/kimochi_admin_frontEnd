@@ -11,13 +11,20 @@ class PromoTabel extends Component {
         super(props);
         this.state = {
             d: [],
+            prm:[],
             curentData: [],
             edit: false
         }
     }
+    componentDidMount(){
+        this.setState({
+            prm:this.props.promo
+        })
+        
+    }
     deleteData = async (id, nama) => {
 
-        if (confirm(`(It's a custom confirm)Are you sure you want to delete ${nama}?`)) {
+        if (confirm(`Are you sure you want to delete ${nama}?`)) {
             console.log(id);
             try {
                 await Axios.get(`${this.props.server}WebApi/deletePromo/${id}`).then((response) => {
@@ -66,7 +73,7 @@ class PromoTabel extends Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>{
-                                                    this.props.promo.map((dd) => {
+                                                this.state.prm.map((dd) => {
                                                         return (
                                                             <tr key={dd.id}>
                                                                 <td scope="row">{dd.judul}</td>

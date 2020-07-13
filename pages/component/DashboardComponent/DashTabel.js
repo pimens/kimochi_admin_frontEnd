@@ -15,16 +15,33 @@ class DashTabel extends Component {
         super(props);
         this.state = {
             d: [],
+            mkn: this.props.makanan,
             curentData: [],
             edit: false
         }
     }
+    refresh = () => {
+        this.setState({
+            mkn: this.props.makanan
+        });
+    }
+    componentDidMount() {
+        this.refresh();
+        console.log(this.state.mkn);
+    }
+    componentDidUpdate() {
+        // if (this.state.mkn.length == 0) {
+        //     this.setState({
+        //         mkn: this.props.makanan
+        //     });
+        // }
+    }
     deleteData = async (id, nama) => {
 
-        if (confirm(`(It's a custom confirm)Are you sure you want to delete ${nama}?`)) {
+        if (confirm(`Are you sure you want to delete ${nama}?`)) {
             console.log(id);
             try {
-                await Axios.get(`${this.props.server}WebApi/deleteMakanan/${id}`).then((response) => {
+                await Axios.delete(`${this.props.server}deleteMakanan/${id}`).then((response) => {
                     this.props.refresh();
                 })
             } catch (error) {
@@ -55,7 +72,7 @@ class DashTabel extends Component {
                                     </div>
                                 </div>
                                 <div className="ibox-content">
-                                    <div style={{marginRight:'100px'}}>
+                                    <div style={{ marginRight: '100px' }}>
                                         <button type="button"
                                             onClick={() => this.props.showFormData()}
                                             className="btn btn-sm btn-primary">Tambah Data</button>
@@ -81,7 +98,7 @@ class DashTabel extends Component {
                                                                 <td scope="row">{dd.nama}</td>
                                                                 <td>{dd.deskripsi}</td>
                                                                 <td>{dd.harga}</td>
-                                                                <td><img alt="image" className="img-circle" src={`${this.props.server}${dd.gambar}`} style={style_2} />
+                                                                <td><img alt="image" className="img-circle" src={`${this.props.server1}${dd.gambar}`} style={style_2} />
                                                                 </td>
                                                                 {/* <td><img height='150' width='150' src={`${this.props.server}${dd.gambar}`} className='img-responsive' alt='Image' /></td> */}
                                                                 <td>
@@ -121,6 +138,7 @@ class DashTabel extends Component {
 const mapStateToProps = (state) => {
     return {
         server: state.globalReducer.server,
+        server1: state.globalReducer.server1,
         dataIdentitas: state.globalReducer.id
     }
 }

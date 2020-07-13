@@ -27,14 +27,14 @@ class Navigasi extends Component {
                             </div>
                             </li>
                             <li>
-                                <Link href="/Dashboard"><a><i class="fa fa-diamond"></i> <span class="nav-label">Dashboard</span></a></Link>
+                                <Link href="/Dashboard"><a><i className="fa fa-diamond"></i> <span className="nav-label">Dashboard</span></a></Link>
                                 {/* <Link href="/Dashboard"><span className="nav-label"><a>Dashboard</a></span></Link> */}
                             </li>
                             <li>
-                                <Link href="/Promo"><a><i class="fa fa-diamond"></i> <span class="nav-label">Promo</span></a></Link>
+                                <Link href="/Promo"><a><i className="fa fa-diamond"></i> <span className="nav-label">Promo</span></a></Link>
                             </li>
                             <li>
-                                <Link href="/Cabang"><a><i class="fa fa-diamond"></i> <span class="nav-label">Cabang</span></a></Link>
+                                <Link href="/Cabang"><a><i className="fa fa-diamond"></i> <span className="nav-label">Cabang</span></a></Link>
                             </li>
                             <li>
                                 <a href="#"><i className="fa fa-th-large"></i> <span className="nav-label">Fitur</span><span className="fa arrow"></span></a>

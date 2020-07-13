@@ -1,11 +1,12 @@
 {
   "name": "next-redux",
   "version": "1.0.0",
-  "description": "Example of using nextjs and redux with prerendering",
+  "description": "Next js For admin page kimochi apps",
   "main": "index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "export": "npm run build && next export",
     "start": "next start"
   },
   "author": "Jibin Thomas",

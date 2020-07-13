@@ -10,9 +10,16 @@ class CabangTabel extends Component {
         super(props);
         this.state = {
             d: [],
+            cab:[],
             curentData: [],
             edit: false
         }
+    }
+    componentDidMount(){
+        this.setState({
+            cab:this.props.cabang,
+        })
+        
     }
     deleteData = async (id, nama) => {
 
@@ -69,7 +76,7 @@ class CabangTabel extends Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>{
-                                                    this.props.cabang.map((dd) => {
+                                                    this.state.cab.map((dd) => {
                                                         return (
                                                             <tr key={dd.id}>
                                                                 <td scope="row">{dd.nama}</td>

@@ -31,7 +31,7 @@ class Login extends Component {
         fd.append('email', this.state.da.email);
         fd.append('password', this.state.da.password);
         try {
-            const response = await Axios.post(this.props.server+"WebApi/login", fd);
+            const response = await Axios.post(this.props.server+"login", fd);
             if (response.data == null) {
                 console.log(response);
                 this.setState({
@@ -40,11 +40,11 @@ class Login extends Component {
                 console.log("er");
 
             } else {
-                console.log(response);
+                console.log(response.data[0].username);
                 this.setState({
                     msg: "Login berhasil"
                 })
-                document.cookie = `userId=${response.data.username}; max-age=3000; path=/;`;
+                document.cookie = `userId=${response.data[0].username}; max-age=3000; path=/;`;
                 window.location.href = "/Dashboard";
             }
         } catch (error) {
@@ -58,7 +58,7 @@ class Login extends Component {
                 <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
                 <div className="row">
                     <div className="col-md-12">
-                        <center><h2>Login Page {this.props.dataIdentitas}</h2></center>
+                        <center><h2>Login Page</h2></center>
                         <div className="alert alert-secondary" role="alert">
                             {this.state.msg}
                         </div>
