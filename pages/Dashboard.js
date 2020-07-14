@@ -39,11 +39,11 @@ class Dashboard extends Component {
                 makanan: response.data
             })
         })
-        // await Axios.get(this.props.server + "pemasukan").then((response) => {
-        //     this.setState({
-        //         pemasukan: response.data
-        //     })
-        // })
+        await Axios.get(this.props.server + "pemasukan").then((response) => {
+            this.setState({
+                pemasukan: response.data
+            })
+        })
     }
     showFormData = () => {
         this.setState({ tambahMakanan: !this.state.tambahMakanan })

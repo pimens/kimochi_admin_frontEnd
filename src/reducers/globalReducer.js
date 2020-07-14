@@ -3,9 +3,9 @@ import { RESET, ubahId, SETMKN, SETPROMO,SETCBNG } from "../actions/types";
 const initialState = {
   counter: 0, id: 10,
   // server: "http://localhost/nomAdmin/WebApi/",
-  server: "http://localhost/blog/public/api/makanan/",
+  server: "http://localhost/kimochiAdminLaravel/public/api/makanan/",
   // server1: "http://localhost/nomAdmin/",
-  server1: "http://localhost/blog/public/uploads/data/thumb/",
+  server1: "http://localhost/kimochiAdminLaravel/public/uploads/data/thumb/",
 
   mkn: {},
   prm: {},

@@ -93,6 +93,7 @@ class DashTabel extends Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>{
+                                                    makanan ==null ? null :
                                                     makanan.map((dd) => {
                                                         return (
                                                             <tr key={dd.id}>

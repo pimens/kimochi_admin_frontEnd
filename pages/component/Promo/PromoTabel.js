@@ -11,16 +11,16 @@ class PromoTabel extends Component {
         super(props);
         this.state = {
             d: [],
-            prm:[],
+            prm: [],
             curentData: [],
             edit: false
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         this.setState({
-            prm:this.props.promo
+            prm: this.props.promo
         })
-        
+
     }
     deleteData = async (id, nama) => {
 
@@ -40,7 +40,7 @@ class PromoTabel extends Component {
 
     }
     render() {
-        const {promo} = this.props;
+        const { promo } = this.props;
         return (
             <div>
                 <div className="row">
@@ -74,24 +74,25 @@ class PromoTabel extends Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>{
-                                                promo.map((dd) => {
-                                                        return (
-                                                            <tr key={dd.id}>
-                                                                <td scope="row">{dd.judul}</td>
-                                                                <td>{dd.deskripsi}</td>
-                                                                <td><img alt="image" className="img-circle" src={`${this.props.server1}${dd.gambar}`} style={style_2} />
-                                                                </td>
-                                                                {/* <td><img height='150' width='150' src={`${this.props.server}${dd.gambar}`} className='img-responsive' alt='Image' /></td> */}
-                                                                <td>
-                                                                    <button type="button"
-                                                                        onClick={() => this.props.showEdit(dd.id)}
-                                                                        className="btn btn-sm btn-primary"><i className="fa fa-pencil"></i></button>
-                                                                    <a className='btn btn-danger btn-sm' onClick={() => this.deleteData(dd.id, dd.judul)}><i className="fa fa-trash"></i></a>
-                                                                </td>
+                                                    promo == null ? null :
+                                                        promo.map((dd) => {
+                                                            return (
+                                                                <tr key={dd.id}>
+                                                                    <td scope="row">{dd.judul}</td>
+                                                                    <td>{dd.deskripsi}</td>
+                                                                    <td><img alt="image" className="img-circle" src={`${this.props.server1}${dd.gambar}`} style={style_2} />
+                                                                    </td>
+                                                                    {/* <td><img height='150' width='150' src={`${this.props.server}${dd.gambar}`} className='img-responsive' alt='Image' /></td> */}
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            onClick={() => this.props.showEdit(dd.id)}
+                                                                            className="btn btn-sm btn-primary"><i className="fa fa-pencil"></i></button>
+                                                                        <a className='btn btn-danger btn-sm' onClick={() => this.deleteData(dd.id, dd.judul)}><i className="fa fa-trash"></i></a>
+                                                                    </td>
 
-                                                            </tr>
-                                                        )
-                                                    })
+                                                                </tr>
+                                                            )
+                                                        })
                                                 }
                                                 </tbody>
                                                 <tfoot>

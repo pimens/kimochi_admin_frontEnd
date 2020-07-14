@@ -32,7 +32,7 @@ class CabangTabel extends Component {
 
     }
     render() {
-        const {cabang} = this.props;
+        const { cabang } = this.props;
         return (
             <div>
                 <div className="row">
@@ -66,22 +66,23 @@ class CabangTabel extends Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>{
-                                                    cabang.map((dd) => {
-                                                        return (
-                                                            <tr key={dd.id}>
-                                                                <td scope="row">{dd.nama}</td>
-                                                                <td>{dd.alamat}</td>
-                                                                <td>{dd.deskripsi}</td>
-                                                                <td>
-                                                                    <button type="button"
-                                                                        onClick={() => this.props.showEdit(dd.id)}
-                                                                        className="btn btn-sm btn-primary"><i className="fa fa-pencil"></i></button>
-                                                                    <a className='btn btn-danger btn-sm' onClick={() => this.deleteData(dd.id, dd.nama)}><i className="fa fa-trash"></i></a>
-                                                                </td>
+                                                    cabang == null ? null :
+                                                        cabang.map((dd) => {
+                                                            return (
+                                                                <tr key={dd.id}>
+                                                                    <td scope="row">{dd.nama}</td>
+                                                                    <td>{dd.alamat}</td>
+                                                                    <td>{dd.deskripsi}</td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            onClick={() => this.props.showEdit(dd.id)}
+                                                                            className="btn btn-sm btn-primary"><i className="fa fa-pencil"></i></button>
+                                                                        <a className='btn btn-danger btn-sm' onClick={() => this.deleteData(dd.id, dd.nama)}><i className="fa fa-trash"></i></a>
+                                                                    </td>
 
-                                                            </tr>
-                                                        )
-                                                    })
+                                                                </tr>
+                                                            )
+                                                        })
                                                 }
                                                 </tbody>
                                                 <tfoot>

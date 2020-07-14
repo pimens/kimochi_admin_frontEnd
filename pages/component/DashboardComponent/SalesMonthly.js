@@ -19,6 +19,7 @@ class SalesMonthly extends Component {
         
     }
     render() {
+        const {pemasukan} = this.props;
         return (
             <div>
                 <div className="row">
@@ -29,7 +30,9 @@ class SalesMonthly extends Component {
                                 <h5>Orders</h5>
                             </div>
                             <div className="ibox-content">
-                                <h1 className="no-margins"> {this.state.ob} </h1>
+                                <h1 className="no-margins"> {
+                                pemasukan == null ? null:
+                                pemasukan.ob} </h1>
 
                             </div>
                         </div>
@@ -41,7 +44,7 @@ class SalesMonthly extends Component {
                                 <h5>Orders</h5>
                             </div>
                             <div className="ibox-content">
-                                <h1 className="no-margins">{this.state.oh} </h1>
+                                <h1 className="no-margins">{pemasukan == null ? null:pemasukan.oh} </h1>
 
                             </div>
                         </div>
@@ -53,7 +56,7 @@ class SalesMonthly extends Component {
                                 <h5>Income</h5>
                             </div>
                             <div className="ibox-content">
-                                <h1 className="no-margins">Rp. {this.state.st}</h1>
+                                <h1 className="no-margins">Rp. {pemasukan == null ? null:pemasukan.status}</h1>
 
                             </div>
                         </div>
@@ -65,7 +68,7 @@ class SalesMonthly extends Component {
                                 <h5>Income</h5>
                             </div>
                             <div className="ibox-content">
-                                <h1 className="no-margins">Rp. {this.state.hari}</h1>
+                                <h1 className="no-margins">Rp. {pemasukan == null ? null:pemasukan.hari}</h1>
                             </div>
                         </div>
                     </div>
