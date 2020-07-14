@@ -29,7 +29,7 @@ class Cabang extends Component {
         this.refreshData();
     }
     refreshData = () => {
-        Axios.get(this.props.server + "WebApi/getCabang").then((response) => {
+        Axios.get(this.props.server + "getCabang").then((response) => {
             this.setState({
                 cabang: response.data
             })
@@ -44,9 +44,8 @@ class Cabang extends Component {
         })
     }
     showEdit = (id) => {
-        Axios.get(this.props.server + "WebApi/getCabangById/" + id).then((response) => {
-            // console.log(response.data[0]);
-            this.props.setCbng(response.data[0]);
+        Axios.get(this.props.server + "getCabangById/" + id).then((response) => {
+            this.props.setCbng(response.data);
             this.setState({ edit: true })
         })
 

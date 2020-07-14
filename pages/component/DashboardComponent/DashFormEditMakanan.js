@@ -34,6 +34,7 @@ class DashFormEditMakanan extends Component {
             fd.append('image', "kosong");
         }
         else {
+            fd.append('image', "exist");
             fd.append('thumb', this.state.img, this.state.img.name);
         }
         fd.append('id', this.state.makanan.id);
@@ -41,7 +42,7 @@ class DashFormEditMakanan extends Component {
         fd.append('harga', this.state.makanan.harga);
         fd.append('desk', this.state.makanan.deskripsi);
         fd.append('category', 1);
-        Axios.put(`${this.props.server}editMakanan`, fd).then((response) => {
+        Axios.post(`${this.props.server}editMakanan`, fd).then((response) => {
             console.log(response.data)
             this.props.closeEdit()
             this.props.refresh();

@@ -34,7 +34,7 @@ class CabangFormEditData extends Component {
         fd.append('nama', this.state.cabang.nama);
         fd.append('alamat', this.state.cabang.alamat);
         fd.append('desk', this.state.cabang.deskripsi);
-        Axios.post(`${this.props.server}WebApi/editCabang`, fd).then((response) => {
+        Axios.post(`${this.props.server}editCabang`, fd).then((response) => {
             this.props.closeEdit()
             this.props.refresh();
         })

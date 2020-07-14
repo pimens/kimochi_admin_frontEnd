@@ -4,7 +4,9 @@ const initialState = {
   counter: 0, id: 10,
   // server: "http://localhost/nomAdmin/WebApi/",
   server: "http://localhost/blog/public/api/makanan/",
+  // server1: "http://localhost/nomAdmin/",
   server1: "http://localhost/blog/public/uploads/data/thumb/",
+
   mkn: {},
   prm: {},
   cbng: {}

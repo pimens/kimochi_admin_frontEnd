@@ -29,7 +29,7 @@ class Promo extends Component {
         this.refreshData();
     }
     refreshData = () => {
-        Axios.get(this.props.server + "WebApi/promo").then((response) => {
+        Axios.get(this.props.server + "promo").then((response) => {
             this.setState({
                 promo: response.data
             })
@@ -44,9 +44,9 @@ class Promo extends Component {
         })
     }
     showEdit = (id) => {
-        Axios.get(this.props.server + "WebApi/getPromoById/" + id).then((response) => {
+        Axios.get(this.props.server + "getPromoById/" + id).then((response) => {
             // console.log(response.data[0]);
-            this.props.setPrm(response.data[0]);
+            this.props.setPrm(response.data);
             this.setState({ edit: true })
         })
 

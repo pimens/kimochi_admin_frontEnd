@@ -17,7 +17,7 @@ class CabangFormTambahData extends Component {
         fd.append('nama', this.state.nama);
         fd.append('alamat', this.state.alamat);
         fd.append('desk', this.state.deskripsi);
-        Axios.post(`${this.props.server}WebApi/insertCabang`, fd).then((response) => {
+        Axios.post(`${this.props.server}insertCabang`, fd).then((response) => {
             console.log(response)
             this.props.closeForm();
             this.props.refresh();

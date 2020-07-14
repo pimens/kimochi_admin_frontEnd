@@ -39,7 +39,7 @@ class PromoFormEditData extends Component {
         fd.append('id', this.state.promo.id);
         fd.append('judul', this.state.promo.judul);
         fd.append('desk', this.state.promo.deskripsi);
-        Axios.post(`${this.props.server}WebApi/editPromo`, fd).then((response) => {
+        Axios.post(`${this.props.server}editPromo`, fd).then((response) => {
             this.props.closeEdit()
             this.props.refresh();
         })

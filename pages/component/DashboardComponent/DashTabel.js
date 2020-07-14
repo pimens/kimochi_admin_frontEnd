@@ -54,6 +54,7 @@ class DashTabel extends Component {
 
     }
     render() {
+        const {makanan} = this.props;
         return (
             <div>
                 <div className="row">
@@ -92,7 +93,7 @@ class DashTabel extends Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>{
-                                                    this.props.makanan.map((dd) => {
+                                                    makanan.map((dd) => {
                                                         return (
                                                             <tr key={dd.id}>
                                                                 <td scope="row">{dd.nama}</td>

@@ -21,7 +21,7 @@ class DashFormTambahData extends Component {
         fd.append('harga', this.state.harga);
         fd.append('category', 1);
         fd.append('desk', this.state.deskripsi);
-        Axios.post(`${this.props.server}WebApi/insertMakanan`, fd).then((response) => {
+        Axios.post(`${this.props.server}insertMakanan`, fd).then((response) => {
             console.log(response);
             this.props.closeForm();
             this.props.refresh();

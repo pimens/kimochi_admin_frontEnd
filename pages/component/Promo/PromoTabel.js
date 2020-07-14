@@ -27,7 +27,7 @@ class PromoTabel extends Component {
         if (confirm(`Are you sure you want to delete ${nama}?`)) {
             console.log(id);
             try {
-                await Axios.get(`${this.props.server}WebApi/deletePromo/${id}`).then((response) => {
+                await Axios.delete(`${this.props.server}deletePromo/${id}`).then((response) => {
                     this.props.refresh();
                 })
             } catch (error) {
@@ -40,6 +40,7 @@ class PromoTabel extends Component {
 
     }
     render() {
+        const {promo} = this.props;
         return (
             <div>
                 <div className="row">
@@ -73,12 +74,12 @@ class PromoTabel extends Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>{
-                                                this.state.prm.map((dd) => {
+                                                promo.map((dd) => {
                                                         return (
                                                             <tr key={dd.id}>
                                                                 <td scope="row">{dd.judul}</td>
                                                                 <td>{dd.deskripsi}</td>
-                                                                <td><img alt="image" className="img-circle" src={`${this.props.server}${dd.gambar}`} style={style_2} />
+                                                                <td><img alt="image" className="img-circle" src={`${this.props.server1}${dd.gambar}`} style={style_2} />
                                                                 </td>
                                                                 {/* <td><img height='150' width='150' src={`${this.props.server}${dd.gambar}`} className='img-responsive' alt='Image' /></td> */}
                                                                 <td>
@@ -117,6 +118,7 @@ class PromoTabel extends Component {
 const mapStateToProps = (state) => {
     return {
         server: state.globalReducer.server,
+        server1: state.globalReducer.server1,
         dataIdentitas: state.globalReducer.id
     }
 }

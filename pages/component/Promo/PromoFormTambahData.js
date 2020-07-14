@@ -19,7 +19,7 @@ class PromoFormTambahData extends Component {
         fd.append('judul', this.state.judul);
         fd.append('category', 1);
         fd.append('desk', this.state.deskripsi);
-        Axios.post(`${this.props.server}WebApi/insertPromo`, fd).then((response) => {
+        Axios.post(`${this.props.server}insertPromo`, fd).then((response) => {
             console.log(response)
             this.props.closeForm();
             this.props.refresh();

@@ -10,23 +10,16 @@ class CabangTabel extends Component {
         super(props);
         this.state = {
             d: [],
-            cab:[],
             curentData: [],
             edit: false
         }
     }
-    componentDidMount(){
-        this.setState({
-            cab:this.props.cabang,
-        })
-        
-    }
     deleteData = async (id, nama) => {
 
-        if (confirm(`(It's a custom confirm)Are you sure you want to delete ${nama}?`)) {
+        if (confirm(`Are you sure you want to delete ${nama}?`)) {
             console.log(id);
             try {
-                await Axios.get(`${this.props.server}WebApi/deleteCabang/${id}`).then((response) => {
+                await Axios.delete(`${this.props.server}deleteCabang/${id}`).then((response) => {
                     this.props.refresh();
                 })
             } catch (error) {
@@ -39,12 +32,9 @@ class CabangTabel extends Component {
 
     }
     render() {
+        const {cabang} = this.props;
         return (
             <div>
-                {/* <script src="../../static/js/jquery-3.1.1.min.js"></script>
-                <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css" />
-                <script type="text/javascript" charSet="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
-                <script src="../../static/js/tb.js"></script> */}
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="wrapper wrapper-content">
@@ -76,7 +66,7 @@ class CabangTabel extends Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>{
-                                                    this.state.cab.map((dd) => {
+                                                    cabang.map((dd) => {
                                                         return (
                                                             <tr key={dd.id}>
                                                                 <td scope="row">{dd.nama}</td>
@@ -118,6 +108,7 @@ class CabangTabel extends Component {
 const mapStateToProps = (state) => {
     return {
         server: state.globalReducer.server,
+        server1: state.globalReducer.server1,
         dataIdentitas: state.globalReducer.id
     }
 }
